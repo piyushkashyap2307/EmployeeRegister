@@ -22,7 +22,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/view/");
 		templateResolver.setSuffix(".html");
-		templateResolver.setTemplateMode("XHTML");
+		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
 	}
 	

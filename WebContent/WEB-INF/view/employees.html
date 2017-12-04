@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-	<p th:text = "${employeeName}"></p>
-	<p th:text = "${employeeAge}"></p>
+
 	<a th:href = "@{/New}" >try</a>
 	
+	<table>
+        <tr th:each="employee : ${employees}">
+          <td th:text="${employee.fname}">First name</td>
+          <td th:text="${employee.lname}">Last name</td>
+          <td> - </td>
+        <td th:text="${employee.town}">town</td>
+        </tr>
+    </table>
+    
 </body>
 </html>

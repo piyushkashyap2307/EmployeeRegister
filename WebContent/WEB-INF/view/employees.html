@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
 
-	<a th:href = "@{/New}" >try</a>
-	
-	<table>
-        <tr th:each="employee : ${employees}">
-          <td th:text="${employee.fname}">First name</td>
-          <td th:text="${employee.lname}">Last name</td>
-          <td> - </td>
-        <td th:text="${employee.town}">town</td>
-        </tr>
-    </table>
-    
+	<a th:href="@{/New}">try</a>
+
+	<table border="1">
+		<THEAD>
+			<TR>
+				<TD>ID</TD>
+				<TD>First name</TD>
+				<TD>Last name</TD>
+				<TD>Location</TD>
+				<TD>Role</TD>
+				<TD>Registration date</TD>
+				
+			</TR>
+		</THEAD>
+		<tr th:each="employee : ${employees}">
+		<td th:text="${employee.id}">Id</td>
+			<td th:text="${employee.firstname}">First name</td>
+			<td th:text="${employee.lastname}">Last name</td>
+			<td th:text="${employee.location}">Location</td>
+			<td th:text="${employee.role}">Role</td>
+			<td th:text="${employee.registration_date}">Registration date</td>
+		</tr>
+	</table>
+
 </body>
 </html>

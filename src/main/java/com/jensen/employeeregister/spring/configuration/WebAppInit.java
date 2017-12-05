@@ -1,4 +1,4 @@
-package com.jensen.employeeregister.spring.configuration;
+package main.java.com.jensen.employeeregister.spring.configuration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

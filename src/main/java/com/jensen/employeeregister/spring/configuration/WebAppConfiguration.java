@@ -22,7 +22,6 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean(name = "templateResolver")
 	public ServletContextTemplateResolver getTemplateResolver() {
-
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/view/");
 		templateResolver.setSuffix(".html");

@@ -20,7 +20,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 	@Override
 	public List<Employee> getAllEmployees() {
 		String query = "FROM employees";
-		
+	
 		return (List<Employee>) hibernateTemplate.find(query);
 	}
 

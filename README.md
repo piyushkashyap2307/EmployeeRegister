@@ -1,6 +1,6 @@
 # EmployeeRegisterRESTfulService
 
-A Employee Register RESTful Service written in Java as part of our course in Java Enterprise Edition (JavaEE)
+A Employee Register RESTful Service written in Java as part of our course in Java Enterprise Edition (JavaEE). This project is intended to (as the name suggests) manage Employees and any relevant data attached to it. The main purpose of this project is to create a connection between a client and a REST api to manage Java Beans with the help of Hibernate(ORM).
 
 ## Getting Started
 

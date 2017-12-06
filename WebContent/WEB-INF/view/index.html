@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<H1>Välkommen till Employee Register</H1>
+	<a th:href="@{/New}">try</a>
+
+	<FORM th:action="index">
+		<input type="submit" value="Show all employee" />
+	</FORM>
+
+	<FORM th:action="getEmployee">
+		<INPUT name="id"></INPUT> 
+		<input type="submit" value="Show one employee" />
+	</FORM>
+
+
+	<table border="1">
+		<THEAD>
+			<TR>
+				<TD>ID</TD>
+				<TD>First name</TD>
+				<TD>Last name</TD>
+				<TD>Location</TD>
+				<TD>Role</TD>
+				<TD>Registration date</TD>
+			</TR>
+		</THEAD>
+		<tr th:each="employee : ${employees}">
+			<td th:text="${employee.id}">Id</td>
+			<td th:text="${employee.firstname}">First name</td>
+			<td th:text="${employee.lastname}">Last name</td>
+			<td th:text="${employee.location}">Location</td>
+			<td th:text="${employee.role}">Role</td>
+			<td th:text="${employee.registration_date}">Registration date</td>
+		</tr>
+	</table>
+
+
+
+</body>
+</html>

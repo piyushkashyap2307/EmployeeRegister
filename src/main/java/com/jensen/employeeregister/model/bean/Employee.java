@@ -39,7 +39,13 @@ public class Employee implements Serializable {
 	@Column(name = "registration_date")
 	private Date registration_date;
 	
+	
+	/**
+	 * Default Constructor of the Employee.class
+	 */
+	public Employee(){
 
+	}
 	
 	public Employee(String firstname, String lastname, String location, String role) {
 		this.firstname = firstname;
@@ -47,12 +53,15 @@ public class Employee implements Serializable {
 		this.location = location;
 		this.role = role;
 	}
-	/**
-	 * Default Constructor of the Employee.class
-	 */
-	public Employee(){
-
+	public Employee(int id, String firstname, String lastname, String location, String role, Date registration_date) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.location = location;
+		this.role = role;
+		this.registration_date = registration_date;
 	}
+	
 	/**
 	 * 
 	 * @return This Object's Id

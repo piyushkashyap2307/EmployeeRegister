@@ -32,7 +32,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
 	@Override
 	public void addEmployee(Employee employee) {
-		
+		this.hibernateTemplate.save(employee);
 	}
 
 	@Override

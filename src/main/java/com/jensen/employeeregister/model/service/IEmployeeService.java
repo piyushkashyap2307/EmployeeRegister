@@ -13,5 +13,7 @@ public interface IEmployeeService {
 	void updateEmployee (Employee employee);
 	
 	void deleteEmployee(int id);
+	
+	void addEmployee(Employee employee);
 
 }

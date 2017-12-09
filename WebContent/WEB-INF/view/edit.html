@@ -12,7 +12,7 @@
 	
 	
 	
-	<form th:action="updateEmployee" >
+	<form action="#" th:action="updateEmployee" th:object="${employee}" method="POST">
 		
 		<input type="hidden" name="id" th:value="${employee.id}" ></input>
 		Firstname: <input name="firstname" th:value="${employee.firstname}" ></input> 

@@ -5,28 +5,46 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>Home Page - Employee Register</title>
 </head>
-<body>
-	<H1>Välkommen till Employee Register</H1>
-	<br></br>
-	<a th:href="@{/add}">addEmployee</a>
-	<a th:href="New">new</a>
-<br></br>
-	<FORM th:action="index">
-		<input type="submit" value="Show all employee" />
-	</FORM>
-<br></br>
-	<FORM th:action="getEmployee">
-		<INPUT name="id"></INPUT> 
-		<input type="submit" value="Show one employee" />
-	</FORM>
-	<br></br>
-	<FORM th:action="add">
-		<input type="submit" value="Add new employee" />
-	</FORM>
-<br></br>
 
+<body>
+	<th:block>
+		<div th:if="${employee != null}">
+			<h1>Edit Employee</h1>
+		</div>
+		<div th:if="${employee == null}">
+			<h1>Add Employee</h1>
+		</div>
+	</th:block>
+
+	<form action="#" th:action="@{/employee/add}" th:object="${employee}" method="POST">
+		<div th:if="${employee != null}">
+			<label>ID: </label>
+			<input name="id" type="hidden" th:value="${employee?.id}" />
+			<input name="registration-date" type="hidden" th:value="${employee?.registration_date}" />
+			<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" size="1" />
+		</div>
+		<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> <br></br> 
+		<label>Lastname: </label><input name="lastname" th:value="${employee?.lastname}"></input> 
+		<br></br> 
+		<label>Location: </label><input name="location" th:value="${employee?.location}"></input>
+		<br></br> 
+		<label>Role: </label><input name="role" th:value="${employee?.role}"></input>
+		<th:block>
+			<div th:if="${employee != null}">
+				<input type="submit" value="Edit employee"></input>
+			</div>
+			<div th:if="${employee == null}">
+				<input type="submit" value="Add employee"></input>
+			</div>
+		</th:block>
+	</form>
+
+	<form th:action="getEmployee">
+		Find Employee (By ID): <input name="id"></input> 
+		<input type="submit" value="Search" />
+	</form>
 	<table border="1">
 		<THEAD>
 			<TR>

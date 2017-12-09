@@ -9,9 +9,7 @@
 </head>
 <body>
 	<h1>Add Employee</h1>
-	
-	<form th:action="addEmployee" >
-		
+	<form th:action="addEmployee" th:object="${employee}" method="POST" >
 		Firstname: <input name="firstname"></input> 
 		<br></br>
 		Lastname: <input name="lastname"></input> 
@@ -19,18 +17,8 @@
 		Location: <input name="location"></input>
 		<br></br>
 		Role: <input name="role"></input>
-		
 		<br></br><br></br>
 		<input type="submit" value="Add employee" ></input>
-	
-		
 	</form>
-	
-	
-	
-	
-
-
-
 </body>
 </html>

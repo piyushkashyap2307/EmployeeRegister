@@ -22,7 +22,7 @@
 		<div th:if="${employee != null}">
 			<label>ID: </label>
 			<input name="id" type="hidden" th:value="${employee?.id}" />
-			<input name="registration-date" type="hidden" th:value="${employee?.registration_date}" />
+			<input name="registrationDate" type="hidden" th:value="${employee.registrationDate}" />
 			<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" size="1" />
 		</div>
 		<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> <br></br> 
@@ -64,7 +64,7 @@
 			<td th:text="${employee.lastname}">Last name</td>
 			<td th:text="${employee.location}">Location</td>
 			<td th:text="${employee.role}">Role</td>
-			<td th:text="${employee.registration_date}">Registration date</td>
+			<td th:text="${employee.registrationDate}">Registration date</td>
 			<td><a th:href="@{/edit/{id}(id = ${employee.id})}">Edit</a></td>
 			<td><a th:href="@{/delete/{id}(id = ${employee.id})}">Delete</a></td>
 		</tr>

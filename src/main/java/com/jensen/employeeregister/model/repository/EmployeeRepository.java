@@ -21,7 +21,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 	public List<Employee> getAllEmployees() {
 		String query = "FROM employees";
 		
-		return (List<Employee>) hibernateTemplate.find(query);
+		return (List<Employee>) this.hibernateTemplate.find(query);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 		newEmployee.setLastname(employee.getLastname());
 		newEmployee.setLocation(employee.getLocation());
 		newEmployee.setRole(employee.getRole());
-		newEmployee.setRegistration_date(employee.getRegistration_date());
+		newEmployee.setRegistrationDate(employee.getRegistrationDate());
 		
 		this.hibernateTemplate.update(newEmployee);
 	}

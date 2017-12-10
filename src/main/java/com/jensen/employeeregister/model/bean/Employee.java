@@ -1,7 +1,7 @@
 package main.java.com.jensen.employeeregister.model.bean;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,18 +11,15 @@ import javax.persistence.Id;
 
 @Entity(name="employees")
 public class Employee implements Serializable {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employee_id")
 	private int id;
-
 
 	@Column(name = "fname")
 	private String firstname;
@@ -37,8 +34,7 @@ public class Employee implements Serializable {
 	private String role;
 	
 	@Column(name = "registration_date")
-	private Date registration_date;
-	
+	private Date registrationDate;
 	
 	/**
 	 * Default Constructor of the Employee.class
@@ -53,15 +49,15 @@ public class Employee implements Serializable {
 		this.location = location;
 		this.role = role;
 	}
-	public Employee(int id, String firstname, String lastname, String location, String role, Date registration_date) {
+	
+	public Employee(int id, String firstname, String lastname, String location, String role, Date registrationDate) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.location = location;
 		this.role = role;
-		this.registration_date = registration_date;
+		this.registrationDate = registrationDate;
 	}
-	
 	/**
 	 * 
 	 * @return This Object's Id
@@ -73,10 +69,10 @@ public class Employee implements Serializable {
 	 * 
 	 * @param id Sets this Object's Id
 	 */
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	/**
 	 * 
 	 * @return This Object's firstName
@@ -120,11 +116,11 @@ public class Employee implements Serializable {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public Date getRegistration_date() {
-		return registration_date;
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
-	public void setRegistration_date(Date registration_date) {
-		this.registration_date = registration_date;
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 	public void setTown(String town) {
 		this.location = town;

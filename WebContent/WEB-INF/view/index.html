@@ -9,71 +9,88 @@
 </head>
 
 <body>
-	
-	<th:block>
-		<div th:if="${employee != null}">
-			<h1>Edit Employee</h1>
-		</div>
-		<div th:if="${employee == null}">
-			<h1>Add Employee</h1>
-		</div>
-	</th:block>
+	<div>
+		<form th:action="@{/admin}" th:unless="${session.isSignedIn}" th:object="${user}" method="POST" >
+			<label>Username: </label><input name="userName"></input><br /> 
+			<label>Password:</label><input type="password" name="password"></input> 
+			<input type="submit" value="Sign In"></input> 
+		</form>
+		
+		<form th:if="${session.isSignedIn}" th:action="@{/signOut}">
+			<input type="submit" value="Sign Out"></input>
+		</form>
+	</div>
 
-	<form action="#" th:action="@{/employee/add}" th:object="${employee}" method="POST">
-		<div th:if="${employee != null}">
-			<label>ID: </label>
-			<input name="id" type="hidden" th:value="${employee?.id}" />
-			<input name="registrationDate" type="hidden" th:value="${employee.registrationDate}" />
-			<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" size="1" />
-		</div>
-		<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> 
-		<br></br> 
-		<label>Lastname: </label><input name="lastname" th:value="${employee?.lastname}"></input> 
-		<br></br> 
-		<label>Location: </label><input name="location" th:value="${employee?.location}"></input>
-		<br></br> 
-		<label>Role: </label><input name="role" th:value="${employee?.role}"></input>
+	<br />
+	<div th:if="${session.isSignedIn}">
+
 		<th:block>
 			<div th:if="${employee != null}">
-				<input type="submit" value="Edit employee"></input>
+				<h1>Edit Employee</h1>
 			</div>
 			<div th:if="${employee == null}">
-				<input type="submit" value="Add employee"></input>
+				<h1>Add Employee</h1>
 			</div>
 		</th:block>
-	</form>
-<br></br> 
-	<form th:action="getEmployee">
-		Find Employee (By ID): <input name="id"></input> 
-		<input type="submit" value="Search" />
-	</form>
-	<br></br> 
-	<table border="1">
-		<THEAD>
-			<TR>
-				<TD>ID</TD>
-				<TD>First name</TD>
-				<TD>Last name</TD>
-				<TD>Location</TD>
-				<TD>Role</TD>
-				<TD>Registration date</TD>
-				<TD width="60">Edit</TD>
-				<TD width="60">Delete</TD>
-			</TR>
-		</THEAD>
-		<tr th:each="employee : ${employees}">
-			<td th:text="${employee.id}">Id</td>
-			<td th:text="${employee.firstname}">First name</td>
-			<td th:text="${employee.lastname}">Last name</td>
-			<td th:text="${employee.location}">Location</td>
-			<td th:text="${employee.role}">Role</td>
-			<td th:text="${employee.registrationDate}">Registration date</td>
-			<td><a th:href="@{/edit/{id}(id = ${employee.id})}">Edit</a></td>
-			<td><a th:href="@{/delete/{id}(id = ${employee.id})}">Delete</a></td>
-		</tr>
-	</table>
-	<br></br>
 
+		<form action="#" th:action="@{/employee/add}" th:object="${employee}" method="POST">
+			<div th:if="${employee != null}">
+				<label>ID: </label> <input name="id" type="hidden"
+					th:value="${employee?.id}" /> <input name="registrationDate"
+					type="hidden" th:value="${employee.registrationDate}" /> <input
+					th:value="${employee?.id}" readonly="readonly" disabled="disabled"
+					size="1" />
+			</div>
+			<label>Firstname: </label><input name="firstname"
+				th:value="${employee?.firstname}"></input> <br></br> <label>Lastname:
+			</label><input name="lastname" th:value="${employee?.lastname}"></input> <br></br>
+			<label>Location: </label><input name="location"
+				th:value="${employee?.location}"></input> <br></br> <label>Role:
+			</label><input name="role" th:value="${employee?.role}"></input>
+			<th:block>
+				<div th:if="${employee != null}">
+					<input type="submit" value="Edit employee"></input>
+				</div>
+				<div th:if="${employee == null}">
+					<input type="submit" value="Add employee"></input>
+				</div>
+			</th:block>
+		</form>
+		<br></br>
+		<form th:action="getEmployee">
+			Find Employee (By ID): <input name="id"></input> <input type="submit"
+				value="Search" />
+		</form>
+		<br></br>
+		<table border="1">
+			<THEAD>
+				<TR>
+					<TD>ID</TD>
+					<TD>First name</TD>
+					<TD>Last name</TD>
+					<TD>Location</TD>
+					<TD>Role</TD>
+					<TD>Registration date</TD>
+					<TD width="60">Edit</TD>
+					<TD width="60">Delete</TD>
+				</TR>
+			</THEAD>
+			<tr th:each="employee : ${employees}">
+				<td th:text="${employee.id}">Id</td>
+				<td th:text="${employee.firstname}">First name</td>
+				<td th:text="${employee.lastname}">Last name</td>
+				<td th:text="${employee.location}">Location</td>
+				<td th:text="${employee.role}">Role</td>
+				<td th:text="${employee.registrationDate}">Registration date</td>
+				<td><a th:href="@{/edit/{id}(id = ${employee.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id = ${employee.id})}">Delete</a></td>
+			</tr>
+		</table>
+		<br></br>
+
+
+	</div>
+	<br />
 
 
 </body>

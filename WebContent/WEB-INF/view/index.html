@@ -25,7 +25,8 @@
 			<input name="registrationDate" type="hidden" th:value="${employee.registrationDate}" />
 			<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" size="1" />
 		</div>
-		<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> <br></br> 
+		<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> 
+		<br></br> 
 		<label>Lastname: </label><input name="lastname" th:value="${employee?.lastname}"></input> 
 		<br></br> 
 		<label>Location: </label><input name="location" th:value="${employee?.location}"></input>
@@ -40,11 +41,12 @@
 			</div>
 		</th:block>
 	</form>
-
+<br></br> 
 	<form th:action="getEmployee">
 		Find Employee (By ID): <input name="id"></input> 
 		<input type="submit" value="Search" />
 	</form>
+	<br></br> 
 	<table border="1">
 		<THEAD>
 			<TR>

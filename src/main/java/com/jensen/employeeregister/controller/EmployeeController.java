@@ -29,7 +29,7 @@ public class EmployeeController {
 	 * Create new Employee (or if the employee already exists updates that Object reference)
 	 * */
 	@PostMapping(value= "/employee/add")
-	public String addEmployee(@ModelAttribute("employee") Employee employee, Model model) {
+	public String addEmployee(@ModelAttribute Employee employee, Model model) {
 		if(employee.getId() == 0) {
 			this.employeeService.addEmployee(employee);
 			model.addAttribute("employee", new Employee());

@@ -1,5 +1,7 @@
 package main.java.com.jensen.employeeregister.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,10 +44,10 @@ public class EmployeeController {
 	/* 
 	 * Get/Find a specific Employee Object with the help of a input value representing an Employee.id.
 	 * */
-	@GetMapping(value = "/employee/{id}")
-	public String getEmployee(@PathVariable("id") int id, Model model) {
-		model.addAttribute("employee", this.employeeService.getEmployeeById(id));
-		model.addAttribute("employees", this.employeeService.getAllEmployees());
+	@GetMapping(value = "getEmployee")
+	public String getEmployee(Model model, HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		model.addAttribute("employees", this.employeeService.getEmployeeById(id));
 
 		return "index";
 	}

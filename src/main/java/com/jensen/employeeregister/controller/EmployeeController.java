@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import main.java.com.jensen.employeeregister.model.bean.Employee;
+import main.java.com.jensen.employeeregister.model.bean.User;
 import main.java.com.jensen.employeeregister.model.service.IEmployeeService;
 
 @Controller
@@ -20,7 +22,7 @@ public class EmployeeController {
 	private IEmployeeService employeeService;
 
 	@RequestMapping(value = {"/", "index"})
-	public String employee(Model model) {
+	public String employee(Model model, @ModelAttribute User user) {
 		model.addAttribute("employees", this.employeeService.getAllEmployees());
 		
 		return "index";

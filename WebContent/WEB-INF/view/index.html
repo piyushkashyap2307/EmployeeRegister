@@ -12,10 +12,11 @@
 <body>
 	<div>
 		<form th:action="@{/admin}" th:unless="${session.isSignedIn}" th:object="${user}" method="POST" >
-			<label>Username: </label><input name="username" th:field="*{username}"></input><br /> 
-			<label>Password:</label><input type="password" name="password" th:field="*{password}"></input> 
+			<label>Username: </label><input name="username" th:field="*{username}"></input>
+			<br /> 
+			<label>Password: </label><input type="password" name="password" th:field="*{password}"></input>
 			<input type="submit" value="Sign In"></input> 
-			
+			<br /> 
    		 <p th:style="${'color: red'}" th:text="${#httpServletRequest.getParameter('error')}" 
      th:unless="${#httpServletRequest.getParameter('error') == null}"></p>
     

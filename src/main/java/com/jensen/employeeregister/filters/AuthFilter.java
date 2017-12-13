@@ -33,15 +33,12 @@ public class AuthFilter implements Filter {
 		String username = servletRequest.getParameter("username");
 		String password = servletRequest.getParameter("password");
 		System.out.println(username.length());
-
-		if(username.length() > 2 && username.length() < 22 &&
-				password.length() > 3 && password.length() < 22) {
-			filterChain.doFilter(request, response);	
+		if(!username.isEmpty() || !password.isEmpty()) {
+			filterChain.doFilter(request, response);
 		}
-		
 		else {
 			servletResponse.setContentType("text/html");
-			servletResponse.sendRedirect("index.html?error=Username%20or%20password%20is%20not%20valid!");
+			servletResponse.sendRedirect("index.html?error=Username%20or%20password%20is%20not%20be%20empty!");
 		}
 		
 	}

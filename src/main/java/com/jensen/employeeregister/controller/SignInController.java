@@ -23,16 +23,13 @@ public class SignInController {
 	@Autowired
 	private IUserRepository userRepository;
 
-
-
 	@RequestMapping("/admin")
 	public ModelAndView signIn(@Valid @ModelAttribute User newUser ,BindingResult bindingResult,
 			HttpServletRequest request) {
 
 		for(User user : this.userRepository.getAllUsers()) {
 			if (bindingResult.hasErrors()) {
-				
-				System.out.println("error "+ bindingResult.getErrorCount());
+				return new ModelAndView("forward:/index?error=Invalid%20Credentials%20provided!");
 			} 
 
 			if(newUser.getUsername().equals(user.getUsername()) &&

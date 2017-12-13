@@ -31,12 +31,13 @@ public class SignInController {
 
 		for(User user : this.userRepository.getAllUsers()) {
 			if (bindingResult.hasErrors()) {
-		        System.out.println("error "+ bindingResult.getErrorCount());
-		    } 
+				
+				System.out.println("error "+ bindingResult.getErrorCount());
+			} 
 
 			if(newUser.getUsername().equals(user.getUsername()) &&
 					newUser.getPassword().equals(user.getPassword())) {
-				
+
 				HttpSession session = request.getSession(true);
 
 				user.setSignedIn(true);
@@ -45,6 +46,7 @@ public class SignInController {
 		}
 		return new ModelAndView("forward:/index");
 	}
+
 
 	@RequestMapping("/signOut")
 	public ModelAndView signOut(HttpSession session) {

@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 Installation Placeholder
 ```
 ## Built With
-* [TomEE](http://tomee.apache.org/docs.html) - An embedded/remote EE Application Server
+* [TomEE-Plus](http://tomee.apache.org/docs.html) - An embedded/remote EE Application Server
 * [Thymeleaf](http://www.thymeleaf.org/documentation.html) - Server-side Java template engine
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Spring 4 (MVC, Security & ORM)](https://spring.io/docs) - Framework for modern Java-based enterprise applications

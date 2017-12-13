@@ -34,8 +34,12 @@ public class UserRepository implements IUserRepository {
 
 	@Override
 	public User getUserByUsername(String username) {
-		
-		return this.hibernateTemplate.get(User.class, username);
+		for(User user : this.getAllUsers()) {
+			if(user.getUsername().equals(username)) {
+				return user;
+			} 
+		}
+		return null;
 	}
 
 	@Override
@@ -49,8 +53,16 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public void deleteUser(int id) {
+	public void deleteUserById(int id) {
 		this.hibernateTemplate.delete(this.getUserById(id));
+	}
+
+	@Override
+	public void deleteUserByUsername(String username) {
+		User user = this.getUserByUsername(username);
+		if(user != null) {
+			this.hibernateTemplate.delete(user);
+		}
 	}
 
 }

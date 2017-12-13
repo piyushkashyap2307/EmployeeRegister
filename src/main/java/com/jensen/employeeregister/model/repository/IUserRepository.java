@@ -4,7 +4,6 @@ import java.util.List;
 
 import main.java.com.jensen.employeeregister.model.bean.User;
 
-
 public interface IUserRepository {
 
 	List<User> getAllUsers();
@@ -17,6 +16,8 @@ public interface IUserRepository {
 
 	void updateUser (User user);
 
-	void deleteUser(int id);
+	void deleteUserById(int id);
+	
+	void deleteUserByUsername(String username);
 	
 }

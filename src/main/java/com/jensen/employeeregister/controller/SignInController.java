@@ -5,42 +5,43 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
-
 import main.java.com.jensen.employeeregister.model.bean.User;
-import main.java.com.jensen.employeeregister.model.repository.IUserRepository;
+import main.java.com.jensen.employeeregister.model.service.IUserService;
 
 @Controller
 public class SignInController {
 
 	@Autowired
-	private IUserRepository userRepository;
-
-
+	private IUserService userService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@RequestMapping("/admin")
-	public ModelAndView signIn(@Valid @ModelAttribute User newUser ,BindingResult bindingResult,
+	public ModelAndView signIn(@Valid @ModelAttribute User newUser, BindingResult bindingResult,
 			HttpServletRequest request) {
 
-		for(User user : this.userRepository.getAllUsers()) {
+		for(User user : this.userService.findAllUsers()) {
 			if (bindingResult.hasErrors()) {
 		        System.out.println("error "+ bindingResult.getErrorCount());
 		    } 
 
-			if(newUser.getUsername().equals(user.getUsername()) &&
-					newUser.getPassword().equals(user.getPassword())) {
-				
-				HttpSession session = request.getSession(true);
+			if(newUser.getUsername().equals(user.getUsername())) {
+				User entity = this.userService.findByUsername(newUser.getUsername());
+				System.out.println("This user taken from db: " + entity);
+				if(!newUser.getPassword().isEmpty() && !entity.getPassword().isEmpty() && this.passwordEncoder.matches(newUser.getPassword(), entity.getPassword())) {
+					HttpSession session = request.getSession(true);
 
-				user.setSignedIn(true);
-				session.setAttribute("isSignedIn", user.isSignedIn());
+					user.setSignedIn(true);
+					session.setAttribute("isSignedIn", user.isSignedIn());
+				}
+				
 			}
 		}
 		return new ModelAndView("forward:/index");
@@ -48,10 +49,9 @@ public class SignInController {
 
 	@RequestMapping("/signOut")
 	public ModelAndView signOut(HttpSession session) {
-		for(User user : this.userRepository.getAllUsers()) {
+		for(User user : this.userService.findAllUsers()) {
 			user.setSignedIn(false);
 			session.setAttribute("isSignedIn", user.isSignedIn());
-			System.out.println("is not signed in");
 		}
 		return new ModelAndView("forward:/index");
 	}

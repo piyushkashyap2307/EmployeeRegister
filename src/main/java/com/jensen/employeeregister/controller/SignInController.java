@@ -29,9 +29,10 @@ public class SignInController {
 
 		for(User user : this.userService.findAllUsers()) {
 			if (bindingResult.hasErrors()) {
-		        System.out.println("error "+ bindingResult.getErrorCount());
-		    } 
-
+				
+				System.out.println("error "+ bindingResult.getErrorCount());
+			} 
+			
 			if(newUser.getUsername().equals(user.getUsername())) {
 				User entity = this.userService.findByUsername(newUser.getUsername());
 				System.out.println("This user taken from db: " + entity);
@@ -46,6 +47,7 @@ public class SignInController {
 		}
 		return new ModelAndView("forward:/index");
 	}
+
 
 	@RequestMapping("/signOut")
 	public ModelAndView signOut(HttpSession session) {

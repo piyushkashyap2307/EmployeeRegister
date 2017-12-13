@@ -27,7 +27,7 @@ public class User implements Serializable{
 	@NotNull
 	@Column(name = "password")
 	private String password;
-	
+
 	private boolean isSignedIn;
 
 	public User() {

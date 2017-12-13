@@ -5,6 +5,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <title>Home Page - Employee Register</title>
 </head>
 
@@ -14,14 +15,10 @@
 			<label>Username: </label><input name="username" th:field="*{username}"></input><br /> 
 			<label>Password:</label><input type="password" name="password" th:field="*{password}"></input> 
 			<input type="submit" value="Sign In"></input> 
-			 <ul>
-			 	 <li th:each="err : ${#fields.errors('all')}" th:text="${err}" />
-			 	 <li th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
-			 </ul>
-			 <ul>
-			 	 <li th:errors="*{username}" />
-			 </ul>
-			 <div th:field="error"></div>
+			
+   		 <p th:style="${'color: red'}" th:text="${#httpServletRequest.getParameter('error')}" 
+     th:unless="${#httpServletRequest.getParameter('error') == null}"></p>
+    
 		</form>
 		
 		<form th:if="${session.isSignedIn}" th:action="@{/signOut}">

@@ -2,14 +2,15 @@
 
 A Employee Register written in Java as part of our course in Java Enterprise Edition (JavaEE). This project is intended to (as the name suggests) manage Employees and any relevant data attached to it. The main purpose of this project is to create a connection between a client and Servlets to manage Java Beans with the help of Hibernate(ORM).
 
-## Getting Started
+<h1>Getting Started</h1>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
  - **Eclipse IDE** (other IDE's will work but will not be mention here)
  - **XAMPP** (or any other program/method for managing a SQL database)
- - **TomEE (Tomcat 8.5)** (or any other Application Servers with the support of EE)
+ - **TomEE-Plus (Tomcat 8.5)** (or any other Application Servers with the support of EE)
+ 
 ### Installing
 
 ```

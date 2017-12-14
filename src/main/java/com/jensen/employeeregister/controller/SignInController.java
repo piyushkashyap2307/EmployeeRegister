@@ -19,7 +19,7 @@ public class SignInController {
 
 	@Autowired
 	private IUserService userService;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -28,10 +28,7 @@ public class SignInController {
 			HttpServletRequest request) {
 
 		for(User user : this.userService.findAllUsers()) {
-			if (bindingResult.hasErrors()) {
-				return new ModelAndView("forward:/index?error=Invalid%20Credentials%20provided!");
-			} 
-			
+
 			if(newUser.getUsername().equals(user.getUsername())) {
 				User entity = this.userService.findByUsername(newUser.getUsername());
 				System.out.println("This user taken from db: " + entity);
@@ -41,7 +38,9 @@ public class SignInController {
 					user.setSignedIn(true);
 					session.setAttribute("isSignedIn", user.isSignedIn());
 				}
-				
+			}
+			else {
+				return new ModelAndView("forward:/index?error=Invalid%20Credentials%20provided!");
 			}
 		}
 		return new ModelAndView("forward:/index");

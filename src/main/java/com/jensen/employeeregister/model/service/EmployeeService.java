@@ -27,6 +27,11 @@ public class EmployeeService implements IEmployeeService {
 		
 		return employee;
 	}
+	@Override
+	public List<Employee> getEmployeesFromSearch(String searchResult) {
+		
+		return this.employeeRepository.getEmployeesFromSearch(searchResult);
+	}
 
 	@Override
 	public void updateEmployee(Employee employee) {
@@ -42,5 +47,7 @@ public class EmployeeService implements IEmployeeService {
 	public void addEmployee(Employee employee) {
 		this.employeeRepository.addEmployee(employee);
 	}
+
+	
 
 }

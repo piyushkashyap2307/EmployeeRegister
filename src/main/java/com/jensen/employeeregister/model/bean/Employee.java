@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="employees")
 public class Employee implements Serializable {
@@ -21,15 +22,19 @@ public class Employee implements Serializable {
 	@Column(name = "employee_id")
 	private int id;
 
+	@NotNull
 	@Column(name = "fname")
 	private String firstname;
 
+	@NotNull
 	@Column(name = "lname")
 	private String lastname;
 
+	@NotNull
 	@Column(name = "location")
 	private String location;
 	
+	@NotNull
 	@Column(name = "role")
 	private String role;
 	

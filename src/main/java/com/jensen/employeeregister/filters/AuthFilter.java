@@ -29,17 +29,16 @@ public class AuthFilter implements Filter {
 		HttpServletResponse servletResponse = (HttpServletResponse) response;
 		
 		HttpSession session = servletRequest.getSession();
-		
-		String username = servletRequest.getParameter("username");
-		String password = servletRequest.getParameter("password");
-		System.out.println(username.length());
-		if(!username.isEmpty() || !password.isEmpty()) {
+		Object isSignedIn = session.getAttribute("isSignedIn");
+		System.out.println(isSignedIn);
+//		if(isSignedIn != null && (boolean) isSignedIn) {
+//			
 			filterChain.doFilter(request, response);
-		}
-		else {
-			servletResponse.setContentType("text/html");
-			servletResponse.sendRedirect("index.html?error=Username%20or%20password%20can't%20be%20empty!");
-		}
+//		}
+//		else {
+//			servletResponse.setContentType("text/html");
+//			servletResponse.sendRedirect("index.html?error=Not%20signed%20in!");
+//		}
 		
 	}
 

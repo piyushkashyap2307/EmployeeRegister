@@ -48,8 +48,8 @@ public class EmployeeController {
 	 * */
 	@GetMapping(value = "getEmployee")
 	public String getEmployee(Model model, HttpServletRequest request) {
-		int id = Integer.parseInt(request.getParameter("id"));
-		model.addAttribute("employees", this.employeeService.getEmployeeById(id));
+		String searchValue = request.getParameter("searchValue");
+		model.addAttribute("employees", this.employeeService.getEmployeesFromSearch(searchValue));
 
 		return "index";
 	}

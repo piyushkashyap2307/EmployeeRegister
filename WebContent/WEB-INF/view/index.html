@@ -12,13 +12,18 @@
 <body>
 	<div>
 		<form th:action="@{/admin}" th:unless="${session.isSignedIn}" th:object="${user}" method="POST" >
-			<label>Username: </label><input name="username" th:field="*{username}"></input>
+			<label>Username: </label><input name="username" th:field="*{username}" required="required"></input>
 			<br /> 
-			<label>Password: </label><input type="password" name="password" th:field="*{password}"></input>
+			<label>Password: </label><input type="password" name="password" th:field="*{password}" required="required"></input>
 			<input type="submit" value="Sign In"></input> 
 			<br /> 
+			
+			
+			
    		 <p th:style="${'color: red'}" th:text="${#httpServletRequest.getParameter('error')}" 
      th:unless="${#httpServletRequest.getParameter('error') == null}"></p>
+    
+    
     
 		</form>
 		
@@ -45,12 +50,13 @@
 			<div th:if="${employee != null}">
 				<label>ID: </label> <input name="id" type="hidden" th:value="${employee?.id}" /> 
 				<input name="registrationDate" type="hidden" th:value="${employee.registrationDate}" /> 
-				<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" size="1" />
+				<input th:value="${employee?.id}" readonly="readonly" disabled="disabled" />
 			</div>
-			<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}"></input> <br /> 
-			<label>Lastname: </label><input name="lastname" th:value="${employee?.lastname}"></input> <br />
-			<label>Location: </label><input name="location" th:value="${employee?.location}"></input> <br/> 
-			<label>Role:</label><input name="role" th:value="${employee?.role}"></input>
+			
+			<label>Firstname: </label><input name="firstname" th:value="${employee?.firstname}" required="required"></input> <br /> 
+			<label>Lastname: </label><input name="lastname" th:value="${employee?.lastname}" required="required"></input> <br />
+			<label>Location: </label><input name="location" th:value="${employee?.location}" required="required"></input> <br/> 
+			<label>Role:</label><input name="role" th:value="${employee?.role}" required="required"></input>
 			<th:block>
 				<div th:if="${employee != null}">
 					<input type="submit" value="Edit employee"></input>
@@ -62,9 +68,9 @@
 		</form>
 		<br></br>
 		<form th:action="getEmployee">
-			Find Employee (By ID): <input name="id"></input> <input type="submit" value="Search" />
+			Search: <input name="searchValue"></input> <input type="submit" value="Search" />
 		</form>
-		<br></br>
+		<br />
 		<table border="1">
 			<THEAD>
 				<TR>

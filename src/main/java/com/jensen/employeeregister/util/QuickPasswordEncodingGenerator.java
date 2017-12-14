@@ -13,7 +13,7 @@ public class QuickPasswordEncodingGenerator {
 	 * It then prints out the result into the console for the User to grab for whatever reason it may be.
 	 * */
 	public static void main(String[] args) {
-		String password = "password";
+		String password = "1234";
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		System.out.println(passwordEncoder.encode(password));
 	}

@@ -10,6 +10,8 @@ public interface IEmployeeService {
 	
 	Employee getEmployeeById(int id);
 	
+	List<Employee> getEmployeesFromSearch(String searchResult);
+	
 	void updateEmployee (Employee employee);
 	
 	void deleteEmployee(int id);

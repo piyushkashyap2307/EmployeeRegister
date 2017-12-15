@@ -4,6 +4,10 @@ import java.util.List;
 
 import main.java.com.jensen.employeeregister.model.bean.User;
 
+/**
+ * An Interface for the UserRepository.class
+ * 
+ */
 public interface IUserRepository {
 
 	List<User> getAllUsers();

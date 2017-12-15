@@ -4,6 +4,10 @@ import java.util.List;
 
 import main.java.com.jensen.employeeregister.model.bean.Employee;
 
+/**
+ * An Interface for the EmployeeRepository.class
+ * 
+ */
 public interface IEmployeeRepository {
 	
 	List<Employee> getAllEmployees();

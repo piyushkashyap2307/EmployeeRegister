@@ -20,7 +20,10 @@ import javax.validation.constraints.NotNull;
 @Entity(name="employees")
 public class Employee implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5473672572666947356L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,13 +48,10 @@ public class Employee implements Serializable {
 	
 	@Column(name = "registration_date")
 	private Date registrationDate;
-	
 	/**
 	 * Default Constructor of the Employee.class
 	 */
-	public Employee(){
-
-	}
+	public Employee(){}
 	/**
 	 * 
 	 * @return This Object's Id
@@ -63,7 +63,6 @@ public class Employee implements Serializable {
 	 * 
 	 * @param id Sets this Object's Id
 	 */
-	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -104,7 +103,7 @@ public class Employee implements Serializable {
 	}
 	/**
 	 * 
-	 * @param lastname Sets this Object's Location
+	 * @param location Sets this Object's Location
 	 */
 	public void setLocation(String location) {
 		this.location = location;
@@ -118,7 +117,7 @@ public class Employee implements Serializable {
 	}
 	/**
 	 * 
-	 * @param lastname Sets this Object's Role
+	 * @param role Sets this Object's Role
 	 */
 	public void setRole(String role) {
 		this.role = role;
@@ -132,11 +131,12 @@ public class Employee implements Serializable {
 	}
 	/**
 	 * 
-	 * @param lastname Sets this Object's RegistrationDate
+	 * @param registrationDate Sets this Object's RegistrationDate
 	 */
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
+	
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", location=" + location

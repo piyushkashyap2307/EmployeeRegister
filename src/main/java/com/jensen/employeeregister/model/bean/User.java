@@ -37,7 +37,20 @@ public class User implements Serializable{
 	/**
 	 * Default Constructor of the User.class
 	 */
-	public User() {
+	public User(){}
+	/**
+	 * 
+	 * @return This Object's Id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * 
+	 * @return This Object's set Of Id
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
 	 * 
@@ -69,33 +82,19 @@ public class User implements Serializable{
 	}
 	/**
 	 * 
-	 * @return This Object's IsSignedIn
+	 * @return This Object's IsSignedIn (true or false)
 	 */
 	public boolean isSignedIn() {
 		return isSignedIn;
 	}
 	/**
 	 * 
-	 * @return This Object's set Of IsSignedIn
+	 * @return This Object's state of IsSignedIn
 	 */
 	public void setSignedIn(boolean isSignedIn) {
 		this.isSignedIn = isSignedIn;
 	}
-	/**
-	 * 
-	 * @return This Object's Id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * 
-	 * @return This Object's set Of Id
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + username + ", password=" + password + ", isSignedIn=" + isSignedIn

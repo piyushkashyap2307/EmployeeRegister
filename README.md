@@ -27,7 +27,7 @@ These instructions will get you a copy of the project up and running on your loc
 2. Seeing as you now got everything up and running it's time to setup TomEE-Plus as well as the project itself.
    In Eclipse, do as follows:
    - In the navigation-bar up top
-   Select "**File**" -> "**New**" -> "**Other**" -> Search for "**Server**" in the searchbar and then "**next**". -> Select "**Apache**"    and scroll down till you see "**Tomcat v8.5 Server**" and press "**Finish**".
+   Select "**File**" -> "**New**" -> "**Other**" -> Search for "**Server**" in the searchbar and then "**next**". -> Select "**Apache**"    and scroll down till you see "**Tomcat v8.5 Server**" -> "**Add...**" select the location where you downloaded and unpackaged the "**TomEE-Plus**" folder and press "**Finish**".
    - Right-click on your Eclipse Project and select "**Properties**" -> "**Project Facets**" and check "**Dynamic web Module**" in order    to make this project into a Dynamic Web Project.
    - Right-click your project again and locate "**Configure**" and "**Convert to Maven Project**".
 

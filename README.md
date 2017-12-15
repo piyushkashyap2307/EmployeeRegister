@@ -5,11 +5,11 @@ A Employee Register written in Java as part of our course in Java Enterprise Edi
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
- - **Java 7+**
+ - **Java 8**
  - **Maven 3**
- - **Eclipse Enterprise Edition** (if you use another IDE it's alright but the experience may differ)
- - **XAMPP** (or any other program/method for managing a SQL database)
- - **TomEE-Plus (Tomcat 8.5)** (or any other Application Servers with the support of EE)
+ - **Eclipse Enterprise Edition (Oxygen)** (if you use another IDE it's alright but the experience may differ)
+ - **XAMPP (7.1.12)** (or any other program/method for managing a SQL database)
+ - **TomEE-Plus (v7.0.2)** (or any other Application Servers with the support of EE)
  
 ### Installation & Setup
 1. Before you begin we have to make sure that:
@@ -119,3 +119,7 @@ ALTER TABLE `users`
 * **Kami Hassanzadeh** - *Programmer* | [GitHub](https://github.com/kami83h)
 
 See also the list of [contributors](https://github.com/GustavMalm/EmployeeRegister/contributors) who participated in this project.
+## Acknowledgements
+* [ConcretePage](https://www.concretepage.com/) - For helping us to see and understand the overall picture of Enterprise Edition Services.
+* [Baeldung](http://www.baeldung.com/) - For giving us a better understanding of Spring Security and the power of Spring overall.
+* [JournalDev](https://www.journaldev.com/) - Helped us grasp how to implement our Hibernate-installation from an earlier project into Spring 4 MVC.

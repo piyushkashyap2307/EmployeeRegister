@@ -21,9 +21,21 @@ These instructions will get you a copy of the project up and running on your loc
    - **XAMPP** is installed and that the SQL database is created based on this 
    [script](https://github.com/GustavMalm/EmployeeRegister/blob/master/README.md#sql-script).
    - **TomEE-Plus** is downloaded to a folder of your choosing. [Link](http://openejb.apache.org/downloads.html)
-   - you clone this repository down to aocal folder on you computer and then import it to Eclipse as a "General Project".
- 
-2. Seeing as you now got everything up and running
+   - this repository is cloned to a local folder on you computer ([How-To](https://help.github.com/articles/cloning-a-repository/)) 
+   and then to be imported into Eclipse Workspace as a "General Project".
+  
+2. Seeing as you now got everything up and running it's time to setup TomEE-Plus as well as the project itself.
+   In Eclipse, do as follows:
+   - In the navigation-bar up top
+   Select "**File**" -> "**New**" -> "**Other**" -> Search for "**Server**" in the searchbar and then "**next**". -> Select "**Apache**"    and scroll down till you see "**Tomcat v8.5 Server**" and press "**Finish**".
+   - Right-click on your Eclipse Project and select "**Properties**" -> "**Project Facets**" and check "**Dynamic web Module**" in order    to make this project into a Dynamic Web Project.
+   - Right-click your project again and locate "**Configure**" and "**Convert to Maven Project**".
+
+3. Now, all you need to do is to:
+   - Right-click on "**QuickPasswordEncodingGenerator**" Class in  "src\main\java\com\jensen\employeeregister\util" and "**Run as**" ->      "**Java Application**" and then grab the encoded password and insert it into your 'password' column in TABLE 'users' in your SQL        DB.
+   - Now right-click on the project again and select "**Run as**" -> "**Run on Server**" and select your **Tomcat v.8.5 Server**.
+   
+4. That's it!
    
 ### SQL Script
 Database: `company`

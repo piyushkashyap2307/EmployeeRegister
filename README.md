@@ -19,11 +19,13 @@ These instructions will get you a copy of the project up and running on your loc
    - you have a working installation of **Eclipse Enterprise Edition**. [Download Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
    - **XAMPP** is installed and that the SQL database is created based on this [script]()
    
-#### Database Script
+### SQL Script
 Database: `company`
-
 ```
 CREATE DATABASE 'company';
+```
+Move to 'company' database
+```
 USE 'company';
 ```
 Tablestructure `employees`
@@ -42,7 +44,7 @@ Mock-Data to table `employees`
 INSERT INTO `employees` (`employee_id`, `fname`, `lname`, `location`, `role`, `registration_date`) VALUES
 (1, 'John', 'Doe', 'New Doeland', 'Master of John', '1888-01-01'),
 (2, 'Jane', 'Doe', 'The Other Doeland', 'Master of Jane', '1812-12-21'),
-(3, 'Aaron', 'Talker', 'Somewhere', 'Salesman', '2017-12-11');
+(3, 'Aaron', 'Talker', 'Somewhere', 'Retired Salesman', '2017-12-11');
 ```
 Trigger `employees`
 ```
@@ -62,7 +64,7 @@ CREATE TABLE `users` (
   `isSignedIn` bit(1) NOT NULL
 );
 ```
-Mock-Data to table `users`
+Mock-Data to table `users` (**NOTE**: *Change the 'password' column value to the generated PasswordEncoded password from the Util-Package included in this project*)
 ```
 INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 (1, 'username', 'changetoencodedpasswordviautilityclassandplaceithere');

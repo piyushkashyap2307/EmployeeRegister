@@ -19,8 +19,8 @@ public class EmployeeRepository implements IEmployeeRepository {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> getAllEmployees() {
+		
 		String query = "FROM employees";
-
 		return (List<Employee>) this.hibernateTemplate.find(query);
 	}
 
@@ -52,22 +52,19 @@ public class EmployeeRepository implements IEmployeeRepository {
 	@Override
 	public void updateEmployee(Employee employee) {
 
-		Employee newEmployee = this.getEmployeeById(employee.getId());
+		Employee entity = this.getEmployeeById(employee.getId());
 
-		newEmployee.setFirstname(employee.getFirstname());
-		newEmployee.setLastname(employee.getLastname());
-		newEmployee.setLocation(employee.getLocation());
-		newEmployee.setRole(employee.getRole());
-		newEmployee.setRegistrationDate(employee.getRegistrationDate());
+		entity.setFirstname(employee.getFirstname());
+		entity.setLastname(employee.getLastname());
+		entity.setLocation(employee.getLocation());
+		entity.setRole(employee.getRole());
+		entity.setRegistrationDate(employee.getRegistrationDate());
 
-		this.hibernateTemplate.update(newEmployee);
+		this.hibernateTemplate.update(entity);
 	}
 
 	@Override
 	public void deleteEmployee(int id) {
 		this.hibernateTemplate.delete(this.getEmployeeById(id));
 	}
-
-
-
 }

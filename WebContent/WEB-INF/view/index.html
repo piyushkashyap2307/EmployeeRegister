@@ -65,6 +65,8 @@
 					<input type="submit" value="Add employee"></input>
 				</div>
 			</th:block>
+			<p th:style="${'color: red'}" th:text="${#httpServletRequest.getParameter('error')}" 
+     th:unless="${#httpServletRequest.getParameter('error') == null}"></p>
 		</form>
 		<br></br>
 		<form th:action="getEmployee">

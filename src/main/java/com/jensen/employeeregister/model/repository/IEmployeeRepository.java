@@ -18,5 +18,4 @@ public interface IEmployeeRepository {
 	
 	void deleteEmployee(int id);
 	
-
 }

@@ -9,12 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * This Class is the EntityType of a Employee
+ * 
+ * @author Kami Hassanzadeh
+ * @author Gustav Malm
+ *
+ */
 @Entity(name="employees")
 public class Employee implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -47,22 +52,6 @@ public class Employee implements Serializable {
 	public Employee(){
 
 	}
-	
-	public Employee(String firstname, String lastname, String location, String role) {
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.location = location;
-		this.role = role;
-	}
-	
-	public Employee(int id, String firstname, String lastname, String location, String role, Date registrationDate) {
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.location = location;
-		this.role = role;
-		this.registrationDate = registrationDate;
-	}
 	/**
 	 * 
 	 * @return This Object's Id
@@ -80,14 +69,14 @@ public class Employee implements Serializable {
 	}
 	/**
 	 * 
-	 * @return This Object's firstName
+	 * @return This Object's FirstName
 	 */
 	public String getFirstname() {
 		return firstname;
 	}
 	/**
 	 * 
-	 * @param firstname Sets this Object's firstName
+	 * @param firstname Sets this Object's FirstName
 	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
@@ -106,29 +95,51 @@ public class Employee implements Serializable {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public String getTown() {
-		return location;
-	}
+	/**
+	 * 
+	 * @return This Object's Location
+	 */
 	public String getLocation() {
 		return location;
 	}
+	/**
+	 * 
+	 * @param lastname Sets this Object's Location
+	 */
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	/**
+	 * 
+	 * @return This Object's Role
+	 */
 	public String getRole() {
 		return role;
 	}
+	/**
+	 * 
+	 * @param lastname Sets this Object's Role
+	 */
 	public void setRole(String role) {
 		this.role = role;
 	}
+	/**
+	 * 
+	 * @return This Object's RegistrationDate
+	 */
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
+	/**
+	 * 
+	 * @param lastname Sets this Object's RegistrationDate
+	 */
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-	public void setTown(String town) {
-		this.location = town;
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", location=" + location
+				+ ", role=" + role + ", registrationDate=" + registrationDate + "]";
 	}
-
 }

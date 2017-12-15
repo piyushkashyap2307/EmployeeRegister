@@ -24,19 +24,18 @@ public class SignInController {
 	private PasswordEncoder passwordEncoder;
 
 	@RequestMapping("/admin")
-	public ModelAndView signIn(@Valid @ModelAttribute User newUser, BindingResult bindingResult,
-			HttpServletRequest request) {
+	public ModelAndView signIn(@Valid @ModelAttribute User user, HttpServletRequest request) {
 
-		for(User user : this.userService.findAllUsers()) {
+		for(User object : this.userService.findAllUsers()) {
 
-			if(newUser.getUsername().equals(user.getUsername())) {
-				User entity = this.userService.findByUsername(newUser.getUsername());
-				System.out.println("This user taken from db: " + entity);
-				if(!newUser.getPassword().isEmpty() && !entity.getPassword().isEmpty() && this.passwordEncoder.matches(newUser.getPassword(), entity.getPassword())) {
+			if(user.getUsername().equals(object.getUsername())) {
+				User entity = this.userService.findByUsername(user.getUsername());
+				
+				if(!user.getPassword().isEmpty() && !entity.getPassword().isEmpty() && this.passwordEncoder.matches(user.getPassword(), entity.getPassword())) {
 					HttpSession session = request.getSession(true);
 
-					user.setSignedIn(true);
-					session.setAttribute("isSignedIn", user.isSignedIn());
+					object.setSignedIn(true);
+					session.setAttribute("isSignedIn", object.isSignedIn());
 				}
 			}
 			else {
@@ -49,6 +48,7 @@ public class SignInController {
 
 	@RequestMapping("/signOut")
 	public ModelAndView signOut(HttpSession session) {
+		
 		for(User user : this.userService.findAllUsers()) {
 			user.setSignedIn(false);
 			session.setAttribute("isSignedIn", user.isSignedIn());

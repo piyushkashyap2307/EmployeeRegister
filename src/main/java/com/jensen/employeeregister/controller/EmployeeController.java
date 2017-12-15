@@ -24,7 +24,7 @@ public class EmployeeController {
 	@RequestMapping(value = {"/", "index"})
 	public String employee(Model model, @ModelAttribute User user) {
 		model.addAttribute("employees", this.employeeService.getAllEmployees());
-		
+
 		return "index";
 	}
 	/* 
@@ -32,6 +32,7 @@ public class EmployeeController {
 	 * */
 	@PostMapping(value= "/employee/add")
 	public String addEmployee(@ModelAttribute Employee employee, Model model) {
+		
 		if(employee.getId() == 0) {
 			this.employeeService.addEmployee(employee);
 			model.addAttribute("employee", new Employee());
@@ -40,7 +41,6 @@ public class EmployeeController {
 			this.employeeService.updateEmployee(employee);
 			model.addAttribute("employees", this.employeeService.getAllEmployees());
 		}
-		
 		return "redirect:/index";
 	}
 	/* 
@@ -60,7 +60,7 @@ public class EmployeeController {
 	public String editEmployee(@PathVariable("id") int id, Model model) {
 		model.addAttribute("employee", this.employeeService.getEmployeeById(id));
 		model.addAttribute("employees", this.employeeService.getAllEmployees());
-		
+
 		return "index";
 	}
 	/* 

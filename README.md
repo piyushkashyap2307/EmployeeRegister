@@ -16,15 +16,21 @@ These instructions will get you a copy of the project up and running on your loc
    - your system is running **Java 7** or higher. For information regarding the installation of Java, 
    go [here](https://docs.oracle.com/javase/7/docs/webnotes/install/).
    - you have **Maven 3** installed. [Maven Installation Guide](https://maven.apache.org/install.html)
-   - you have a working installation of **Eclipse Enterprise Edition**. [Download Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
-   - **XAMPP** is installed and that the SQL database is created based on this [script](https://github.com/GustavMalm/EmployeeRegister/blob/master/README.md#sql-script)
+   - you have a working installation of **Eclipse Enterprise Edition**. 
+   [Download Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
+   - **XAMPP** is installed and that the SQL database is created based on this 
+   [script](https://github.com/GustavMalm/EmployeeRegister/blob/master/README.md#sql-script).
+   - **TomEE-Plus** is downloaded to a folder of your choosing. [Link](http://openejb.apache.org/downloads.html)
+   - you clone this repository down to aocal folder on you computer and then import it to Eclipse as a "General Project".
+ 
+2. Seeing as you now got everything up and running
    
 ### SQL Script
 Database: `company`
 ```
 CREATE DATABASE 'company';
 ```
-Move to 'company' database
+Select 'company'
 ```
 USE 'company';
 ```
@@ -60,8 +66,7 @@ Tablestructure `users`
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(32) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `isSignedIn` bit(1) NOT NULL
+  `password` varchar(64) NOT NULL
 );
 ```
 Mock-Data to table `users` (**NOTE**: *Change the 'password' column value to the generated PasswordEncoded password from the Util-Package included in this project*)

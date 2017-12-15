@@ -52,6 +52,7 @@ public class UserRepository implements IUserRepository {
 		this.hibernateTemplate.update(user);
 	}
 
+
 	@Override
 	public void deleteUserById(int id) {
 		this.hibernateTemplate.delete(this.getUserById(id));

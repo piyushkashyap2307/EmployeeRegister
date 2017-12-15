@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
    go [here](https://docs.oracle.com/javase/7/docs/webnotes/install/).
    - you have **Maven 3** installed. [Maven Installation Guide](https://maven.apache.org/install.html)
    - you have a working installation of **Eclipse Enterprise Edition**. [Download Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
-   - **XAMPP** is installed and that the SQL database is created based on this [script]()
+   - **XAMPP** is installed and that the SQL database is created based on this [script](https://github.com/GustavMalm/EmployeeRegister/blob/master/README.md#sql-script)
    
 ### SQL Script
 Database: `company`

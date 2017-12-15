@@ -101,4 +101,4 @@ ALTER TABLE `users`
 * **Gustav Malm** - *Programmer* | [GitHub](https://github.com/GustavMalm)
 * **Kami Hassanzadeh** - *Programmer* | [GitHub](https://github.com/kami83h)
 
-See also the list of [contributors](https://github.com/GustavMalm/EmployeeRegisterRESTfulService/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/GustavMalm/EmployeeRegister/contributors) who participated in this project.

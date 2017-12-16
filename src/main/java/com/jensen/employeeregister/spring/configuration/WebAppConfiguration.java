@@ -20,7 +20,9 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @Import(DBConfig.class)
 @ComponentScan("main.java.com.jensen.employeeregister")
 public class WebAppConfiguration extends WebMvcConfigurerAdapter {
-
+	/*
+	 * Thymeleaf Setup
+	 */
 	@Bean(name = "templateResolver")
 	public ServletContextTemplateResolver getTemplateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
@@ -46,6 +48,9 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 
 		return viewResolver;
 	}
+	/*
+	 * end of Thymeleaf setup
+	 */
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {

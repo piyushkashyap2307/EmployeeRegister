@@ -47,25 +47,25 @@ public class DBConfig {
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource datasource = new BasicDataSource();
-		datasource.setDriverClassName(environment.getProperty("database.driver"));
-		datasource.setUrl(environment.getProperty("database.url"));
-		datasource.setUsername(environment.getProperty("database.root"));
-		datasource.setPassword(environment.getProperty("database.password"));
+		datasource.setDriverClassName(this.environment.getProperty("database.driver"));
+		datasource.setUrl(this.environment.getProperty("database.url"));
+		datasource.setUsername(this.environment.getProperty("database.root"));
+		datasource.setPassword(this.environment.getProperty("database.password"));
 		
 		return datasource;
 	}
+	
 	@Bean
 	public HibernateTransactionManager getHibernateTransactionManager() {
 		
 		return new HibernateTransactionManager(this.getSessionFactory());
 	}
 	
-	
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
-		properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
-		properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
-		properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+		properties.put("hibernate.dialect", this.environment.getProperty("hibernate.dialect"));
+		properties.put("hibernate.hbm2ddl.auto", this.environment.getProperty("hibernate.hbm2ddl.auto"));
+		properties.put("hibernate.show_sql", this.environment.getProperty("hibernate.show_sql"));
 		return properties;
 	}
 }

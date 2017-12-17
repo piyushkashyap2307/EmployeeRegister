@@ -17,6 +17,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
+ * Configures the Database
  * 
  * @author http://websystique.com/
  * @author Gustav
@@ -27,19 +28,25 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class DBConfig {
-	
+	/**
+	 * Autowired @bean of the Interface representing the environment in which the current application is running.
+	 * This is used to find and read the "database.properties" whitin this project folder structure.
+	 */
 	@Autowired
 	private Environment environment;
 	/**
 	 * Initializes the Hibernate Template with a new instance of a LocalSessionFactoryBean.
-	 * @return
+	 * @return a new HibernateTemplate
 	 */
 	@Bean
 	public HibernateTemplate initHibernateTemplate() {
 		
 		return new HibernateTemplate(this.initSessionFactory());
 	}
-
+	/**
+	 * Initializes the SessionFactory with a new instance of a LocalSessionFactoryBean, DataSource and HibernateProperties.
+	 * @return a new SessionFactory
+	 */
 	@Bean
 	public SessionFactory initSessionFactory() {
 		LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
@@ -53,7 +60,11 @@ public class DBConfig {
 		}
 		return localSessionFactoryBean.getObject();
 	}
-	
+	/**
+	 * Initializes the DataSource with a new instance of a BasicDataSource.
+	 * Uses the Environment @bean in order to get the required database properties.
+	 * @return a new DataSource
+	 */
 	@Bean
 	public DataSource initDataSource() {
 		BasicDataSource datasource = new BasicDataSource();
@@ -64,13 +75,19 @@ public class DBConfig {
 		
 		return datasource;
 	}
-	
+	/**
+	 * Initializes the HibernateTransactionManager with a new instance of a LocalSessionFactoryBean.
+	 * @return a new HibernateTransactionManager
+	 */
 	@Bean
 	public HibernateTransactionManager initHibernateTransactionManager() {
 		
 		return new HibernateTransactionManager(this.initSessionFactory());
 	}
-	
+	/**
+	 * Creates a Properties file and locates the database properties to be added into this Properties.
+	 * @return Properties with the database properties included.
+	 */
 	private Properties initHibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", this.environment.getProperty("hibernate.dialect"));

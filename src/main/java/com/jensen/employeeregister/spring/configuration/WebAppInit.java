@@ -9,10 +9,11 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebAppInit implements WebApplicationInitializer{
-
+	/**
+	 * Configures the DispatcherServlet as well as registrating the WebAppConfiguration.class.
+	 */
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		context.register(WebAppConfiguration.class);
 		
@@ -21,9 +22,5 @@ public class WebAppInit implements WebApplicationInitializer{
 		Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
 		dynamic.setLoadOnStartup(1);
 		dynamic.addMapping("/");
-		
 	}
-	
-	
-
 }

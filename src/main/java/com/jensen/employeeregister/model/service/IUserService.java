@@ -1,11 +1,14 @@
 package main.java.com.jensen.employeeregister.model.service;
 
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import main.java.com.jensen.employeeregister.model.bean.User;
-
+/**
+ * An Interface for the UserService.class
+ */
 @Service
 public interface IUserService {
 
@@ -21,6 +24,6 @@ public interface IUserService {
  
     List<User> findAllUsers(); 
      
-    boolean isUserUsernameUnique(Integer id, String username);
+    boolean isUsernameUnique(Integer id, String username);
 	
 }

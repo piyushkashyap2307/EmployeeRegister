@@ -35,7 +35,7 @@ These instructions will get you a copy of the project up and running on your loc
    - Right-click on "**QuickPasswordEncodingGenerator**" Class in  "src\main\java\com\jensen\employeeregister\util" and "**Run as**" ->      "**Java Application**" and then grab the encoded password and insert it into your 'password' column in TABLE 'users' in your SQL        DB.
    - Now right-click on the project again and select "**Run as**" -> "**Run on Server**" and select your **Tomcat v.8.5 Server**.
    
-4. That's it!
+4. That's it! Visit: http://www.localhost:8080/EmployeeRegister/ to interact with the application.
    
 ### SQL Script
 Database: `company`

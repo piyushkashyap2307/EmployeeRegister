@@ -15,13 +15,31 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * This Filter has a sole purpose of validating whether or not the add/edit employee function in the View contains
+ * only alphabetical characters. 
+ * 	- If true it will grant the client access to the EmployeeController.class mapping.
+ * 	- If false it will forward the client back to the main View together with the corresponding
+ * 	  error messages.
+ * 
+ * @author Gustav Malm
+ * @author Kami Hassanzadeh
+ */
 @WebFilter("/employee/add")
 public class AuthFilter implements Filter {
 
 	@Override
-	public void destroy() {
-	}
-
+	public void init(FilterConfig arg0) throws ServletException {}
+	
+	@Override
+	public void destroy() {}
+	/**
+	 *  This Filter has a sole purpose of validating whether or not the add/edit employee function in the View contains
+	 * only alphabetical characters. 
+	 * 	- If true it will grant the client access to the EmployeeController.class mapping.
+	 * 	- If false it will forward the client back to the main View together with the corresponding
+	 * 	  error messages.
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException {
@@ -46,17 +64,18 @@ public class AuthFilter implements Filter {
 		}
 
 	}
-	public boolean inputMatches(String regex) {
+	/**
+	 * Checks wheter or not the input String passes through as a "alphabetical only" type of string or not.
+	 * 
+	 * @param input
+	 * @return true or false
+	 */
+	public boolean inputMatches(String input) {
 		Pattern pattern = Pattern.compile("[A-Za-z]");
-		Matcher matcher = pattern.matcher(regex);
+		Matcher matcher = pattern.matcher(input);
 		if(matcher.find()) {
 			return true;
 		}
 		else return false;
 	}
-
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-	}
-
 }

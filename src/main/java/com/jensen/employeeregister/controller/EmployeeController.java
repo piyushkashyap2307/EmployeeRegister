@@ -15,21 +15,31 @@ import main.java.com.jensen.employeeregister.model.bean.Employee;
 import main.java.com.jensen.employeeregister.model.bean.User;
 import main.java.com.jensen.employeeregister.model.service.IEmployeeService;
 
+/**
+ * The Employee Controller that controls the Employee Management.
+ *
+ * @author Gustav Malm
+ * @author Kami Hassanzadeh
+ */
 @Controller
 public class EmployeeController {
-
+	/**
+	 * Autowired the IEmployeeService.class in order to call methods from it.
+	 */
 	@Autowired
 	private IEmployeeService employeeService;
-
+	/**
+	 * Updates the view with the complete list of Employees.
+	 */
 	@RequestMapping(value = {"/", "index"})
 	public String employee(Model model, @ModelAttribute User user) {
 		model.addAttribute("employees", this.employeeService.getAllEmployees());
 
 		return "index";
 	}
-	/* 
+	/** 
 	 * Create new Employee (or if the employee already exists updates that Object reference)
-	 * */
+	 */
 	@PostMapping(value= "/employee/add")
 	public String addEmployee(@ModelAttribute Employee employee, Model model) {
 		
@@ -43,9 +53,9 @@ public class EmployeeController {
 		}
 		return "redirect:/index";
 	}
-	/* 
+	/** 
 	 * Get/Find a specific Employee Object with the help of a input value representing an Employee.id.
-	 * */
+	 */
 	@GetMapping(value = "getEmployee")
 	public String getEmployee(Model model, HttpServletRequest request) {
 		String searchValue = request.getParameter("searchValue");
@@ -53,9 +63,9 @@ public class EmployeeController {
 
 		return "index";
 	}
-	/* 
-	 * Edit a specific Employee Object with the help of a input value representing an Employee.id.
-	 * */
+	/** 
+	* Edit a specific Employee Object with the help of a input value representing an Employee.id.
+	*/
 	@GetMapping(value = "/edit/{id}")
 	public String editEmployee(@PathVariable("id") int id, Model model) {
 		model.addAttribute("employee", this.employeeService.getEmployeeById(id));
@@ -63,9 +73,9 @@ public class EmployeeController {
 
 		return "index";
 	}
-	/* 
-	 * Delete this Employee by an ID-variable
-	 * */
+	/** 
+	 * Delete a specific Employee Object with the help of a input value representing an Employee.id.
+	 */
 	@RequestMapping(value = "/delete/{id}")
 	public String deleteEmployee(@PathVariable("id") int id, Model model) {
 		this.employeeService.deleteEmployee(id);

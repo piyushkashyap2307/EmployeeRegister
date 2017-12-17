@@ -9,11 +9,18 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import main.java.com.jensen.employeeregister.model.bean.User;
-
+/**
+ * A User Repository which handles the Hibernate(Database)-Bean connection.
+ * 
+ * @author Gustav Malm
+ * @author Kami Hassanzadeh
+ */
 @Transactional
 @Repository
 public class UserRepository implements IUserRepository {
-
+	/**
+	 * Autowired @bean of the HibernateTemplate
+	 */
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	/**

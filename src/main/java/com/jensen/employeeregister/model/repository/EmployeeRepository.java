@@ -9,10 +9,18 @@ import org.springframework.stereotype.Repository;
 
 import main.java.com.jensen.employeeregister.model.bean.Employee;
 
+/**
+ * A Employee Repository which handles the Hibernate(Database)-Bean connection.
+ * 
+ * @author Gustav Malm
+ * @author Kami Hassanzadeh
+ */
 @Transactional
 @Repository
 public class EmployeeRepository implements IEmployeeRepository {
-
+	/**
+	 * Autowired @bean of the HibernateTemplate
+	 */
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	/**

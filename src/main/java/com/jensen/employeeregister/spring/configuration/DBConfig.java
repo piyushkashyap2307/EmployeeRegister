@@ -16,6 +16,13 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * 
+ * @author http://websystique.com/
+ * @author Gustav
+ * @author Kami
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")

@@ -24,7 +24,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 	 * Thymeleaf Setup
 	 */
 	@Bean(name = "templateResolver")
-	public ServletContextTemplateResolver getTemplateResolver() {
+	public ServletContextTemplateResolver initTemplateResolver() {
 		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/view/");
 		templateResolver.setSuffix(".html");
@@ -34,24 +34,23 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean(name = "templateEngine")
-	public SpringTemplateEngine getTemplateEngine() {
+	public SpringTemplateEngine initTemplateEngine() {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-		templateEngine.setTemplateResolver(this.getTemplateResolver());
+		templateEngine.setTemplateResolver(this.initTemplateResolver());
 
 		return templateEngine;
 	}
 
 	@Bean(name = "viewResolver")
-	public ThymeleafViewResolver getViewResolver() {
+	public ThymeleafViewResolver initViewResolver() {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-		viewResolver.setTemplateEngine(this.getTemplateEngine());
+		viewResolver.setTemplateEngine(this.initTemplateEngine());
 
 		return viewResolver;
 	}
 	/*
 	 * end of Thymeleaf setup
 	 */
-
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("index");;
@@ -65,7 +64,6 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 	 * Configure MessageSource to provide internationalized messages
 	 *
 	 */
-
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

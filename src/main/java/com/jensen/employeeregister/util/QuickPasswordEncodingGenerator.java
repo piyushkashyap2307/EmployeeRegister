@@ -4,6 +4,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /** 
  * This is a utility Class with the sole purpose of generating an encrypted String-value.
+ * 
+ * @author https://www.concretepage.com/
  */
 public class QuickPasswordEncodingGenerator {
 	/** 
